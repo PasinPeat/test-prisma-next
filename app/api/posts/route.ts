@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+//-----------------------------  FIND POSTS ------------------------------
 export async function GET(req: Request, res: Response) {
   try {
     const posts = await prisma.post.findMany();
@@ -12,6 +13,7 @@ export async function GET(req: Request, res: Response) {
   }
 }
 
+//-----------------------------  CREATE POST ------------------------------
 export async function POST(req: Request, res: Response) {
   try {
     const { title, content } = await req.json();
